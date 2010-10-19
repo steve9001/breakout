@@ -37,7 +37,7 @@ module Breakout
     end
 
     def bid()
-      (Digest::SHA2.new << rand.to_s[0..10]).to_s
+      (Digest::SHA2.new << rand.to_s).to_s[0..10]
     end
 
     def browser_url(outlet, opts={})
