@@ -45,7 +45,7 @@ module Breakout
       bid = opts[:bid] || Breakout.bid
       e = opts[:e] || (Time.now + 3).to_i
       notify = opts[:notify] || false
-      "ws://#{breakout_host}:#{browser_port}/#{grid}?outlet=#\{outlet}&bid=#\{bid}&e=#\{e}&notify=notify&gat=#\{grid_access_token(outlet, bid, e, notify)}"
+      "ws://#{breakout_host}:#{browser_port}/#{grid}?outlet=#\{outlet}&bid=#\{bid}&e=#\{e}&notify=#\{notify}&gat=#\{grid_access_token(outlet, bid, e, notify)}"
     end
 
   end
