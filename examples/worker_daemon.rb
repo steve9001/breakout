@@ -2,7 +2,7 @@
 begin
   require File.expand_path("../../brconfig", __FILE__)
 rescue LoadError
-  puts `#{File.expand_path("../../bin", __FILE__)}/generate-brconfig.rb`
+  puts `#{File.expand_path("../../bin/generate-brconfig.rb", __FILE__)}`
   require File.expand_path("../../brconfig", __FILE__)
 end
 

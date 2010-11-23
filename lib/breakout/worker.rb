@@ -20,7 +20,7 @@ module Breakout
     outlet_name, bid, message = data.split("\n", 3)
     unless outlet = OUTLETS[outlet_name]
       disconnect bid
-      return
+      raise data
     end
     outlet.do_work(bid, message)
   end

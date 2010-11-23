@@ -19,7 +19,7 @@ function Ping(ping_url) {
     div.text((new Date() - time)/1000);
     setTimeout(ping, 1000);
     if (!spawn_url) {
-      spawn_url = jQuery.parseJSON(e.data);
+      spawn_url = e.data;
       setTimeout(function() {new Ping(spawn_url);}, 1500);
     }
   }

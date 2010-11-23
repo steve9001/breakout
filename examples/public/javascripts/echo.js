@@ -23,7 +23,7 @@ function Echo() {
   this.onmessage = function(e) {
     var t = (new Date() - times.shift())/1000;
     ddiv.text(t + " seconds"); 
-    mdiv.append(String.fromCharCode(jQuery.parseJSON(e.data)));
+    mdiv.append(String.fromCharCode(e.data));
   }
 
   ws = new WebSocket(echo_url);

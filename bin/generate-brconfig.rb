@@ -6,8 +6,8 @@
 
 config_filename = 'brconfig.rb'
 breakout_host = ARGV[0] || 'localhost'
-worker_port = 9000
-browser_port = 9001
+worker_port = 9001
+browser_port = 9002
 
 if File.exist?(config_filename)
   puts "Replacing #{config_filename}!"
