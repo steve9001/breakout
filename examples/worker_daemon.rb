@@ -8,6 +8,7 @@ end
 
 require File.expand_path("../ping", __FILE__)
 require File.expand_path("../echo", __FILE__)
+require File.expand_path("../chat", __FILE__)
 
 Breakout.start_worker()
 

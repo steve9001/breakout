@@ -43,3 +43,27 @@ jQuery.getScript("/javascripts/ping.js", function() { new Ping('#{Breakout.brows
 SCRIPT
 end
 
+get '/chat' do
+  layout % <<-SCRIPT
+<div>
+  <h2>Name</h2>
+  <form action="/chat" method="post">
+  <input type="text" name="name" />
+  <input type="submit" name="submit" />
+  </form>
+</div>
+SCRIPT
+end
+
+post '/chat' do
+  halt 400 unless name = params[:name]
+  chat_url = Breakout.browser_url('chat', :bid => name, :notify => true)
+  layout % <<-SCRIPT
+<script type='text/javascript' src='/javascripts/jquery-1.4.2.min.js'></script>
+<script type='text/javascript'>
+var chat_url = '#{chat_url}';
+jQuery.getScript("/javascripts/chat.js");
+</script>
+SCRIPT
+end
+
