@@ -3,9 +3,11 @@ $LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
 require 'singleton'
 require 'json'
+require 'yaml'
 require 'breakout/web_socket'
 
 module Breakout
+  require 'breakout/config'
   require 'lib/breakout/railtie' if defined?(Rails)
   require 'breakout/socket'
   require 'breakout/server_api'

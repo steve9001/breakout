@@ -1,14 +1,12 @@
 #!/usr/bin/env ruby
-begin
-  require File.expand_path("../../brconfig", __FILE__)
-rescue LoadError
-  puts `#{File.expand_path("../../bin/generate-brconfig.rb", __FILE__)}`
-  require File.expand_path("../../brconfig", __FILE__)
-end
 
-require File.expand_path("../ping", __FILE__)
-require File.expand_path("../echo", __FILE__)
-require File.expand_path("../chat", __FILE__)
+require File.expand_path("../../lib/breakout", __FILE__)
+
+Breakout.load_or_create_config_file('breakout.yml')
+
+['ping', 'echo', 'chat'].each do |worker|
+  require File.expand_path("../#{worker}", __FILE__)
+end
 
 Breakout.start_worker()
 

@@ -1,5 +1,3 @@
-require File.expand_path("../../lib/breakout", __FILE__)
-
 class Echo
 
   include Breakout::Worker

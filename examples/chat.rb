@@ -1,5 +1,3 @@
-require File.expand_path("../../lib/breakout", __FILE__)
-
 class Chat
 
   include Breakout::Worker
