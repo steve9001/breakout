@@ -13,7 +13,7 @@ module Breakout
   # when the browser socket opens, the message will be "/open\n"
   # when the browser socket closes, the mesage will be "/close\n"
 
-  module ServerAPI
+  module WorkerAPI
 
     def disconnect(id)
       $bs.send :disconnect => id

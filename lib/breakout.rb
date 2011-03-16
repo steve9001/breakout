@@ -10,6 +10,6 @@ module Breakout
   require 'breakout/config'
   require 'lib/breakout/railtie' if defined?(Rails)
   require 'breakout/socket'
-  require 'breakout/server_api'
+  require 'breakout/worker_api'
   require 'breakout/worker'
 end

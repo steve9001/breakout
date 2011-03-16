@@ -5,7 +5,7 @@ module Breakout
   module Worker
     def self.included(base)
       base.class_eval do
-        include(ServerAPI)
+        include(WorkerAPI)
         include(Singleton)
       end
       raise Exception if WORKER_BY_ROUTE[base.name.downcase]
@@ -22,7 +22,7 @@ module Breakout
   end
 
   def Breakout.start_worker(url=nil)
-    Breakout.extend ServerAPI
+    Breakout.extend WorkerAPI
     unless url
       url = Breakout.worker_url
     end
