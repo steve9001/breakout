@@ -1,6 +1,6 @@
 module Breakout
 
-  OUTLETS = {}
+  WORKER_BY_ROUTE = {}
 
   module Worker
     def self.included(base)
@@ -8,21 +8,17 @@ module Breakout
         include(ServerAPI)
         include(Singleton)
       end
-      raise Exception if OUTLETS[base.name.downcase]
-      OUTLETS[base.name.downcase] = base.instance
+      raise Exception if WORKER_BY_ROUTE[base.name.downcase]
+      WORKER_BY_ROUTE[base.name.downcase] = base.instance
     end
   end
 
-  #first line of message is outlet name
+  #first line of message is route
   #second line of message is bid
-  #rest is for the outlet
   def Breakout.dispatch(data)
-    outlet_name, bid, message = data.split("\n", 3)
-    unless outlet = OUTLETS[outlet_name]
-      disconnect bid
-      raise data
-    end
-    outlet.do_work(bid, message)
+    route, bid, message = data.split("\n", 3)
+    raise "#{route}\n#{bid}\n#{message}" unless worker = WORKER_BY_ROUTE[route]
+    worker.do_work(bid, message)
   end
 
   def Breakout.start_worker(url=nil)
@@ -31,7 +27,6 @@ module Breakout
       url = Breakout.worker_url
     end
     
-    puts url.inspect
     $bs = Socket.new(url)
 
     while data = $bs.receive() do
