@@ -1,8 +1,9 @@
-# rvm use ree@sinatra
+#!/usr/bin/env ruby
 
 require 'rubygems'
 require 'sinatra'
 
+#require 'breakout'
 require File.expand_path("../../lib/breakout", __FILE__)
 Breakout.load_or_create_config_file('breakout.yml')
 
