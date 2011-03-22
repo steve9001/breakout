@@ -9,5 +9,5 @@ Breakout.load_or_create_config_file('breakout.yml')
   require File.expand_path("../#{worker}", __FILE__)
 end
 
-Breakout.start_worker()
+Breakout::Worker::App.new.run()
 
