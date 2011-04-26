@@ -22,8 +22,9 @@ module Breakout
     CONFIG.merge!(opts)
   end
 
-  def self.grid_access_token(route, bid, e, notify)
-    (Digest::SHA2.new << "#{CONFIG[:grid_key]}#{route}#{bid}#{e}#{notify}").to_s
+  def self.grid_access_token(route, bid, e, notify, grid_key=nil)
+    grid_key ||= CONFIG[:grid_key]
+    (Digest::SHA2.new << "#{grid_key}#{route}#{bid}#{e}#{notify}").to_s
   end
 
   def self.worker_url()

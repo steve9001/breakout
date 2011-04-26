@@ -9,12 +9,12 @@ class Chat
   end
 
   def do_work(sender, message)
-    if message.start_with? "/open\n"
+    if message.start_with? "/open"
       unless members.key?(sender)
         members[sender] = true
         send_message "#{sender} has joined." => members.keys
       end
-    elsif message.start_with? "/close\n"
+    elsif message.start_with? "/close"
       if members.delete(sender)
         disconnect sender
         send_message "#{sender} has left." => members.keys

@@ -24,6 +24,7 @@ module Breakout
           worker_by_route[klass.route] = worker
         end
 
+        done_work
         while data = socket.receive() do
           dispatch(data)
           if @stop

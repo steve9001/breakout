@@ -13,8 +13,8 @@ module Breakout
       #
       # for messages incoming from the server (in worker.do_work) the notify api
       #  (if the browser url included notify=true) 
-      #  when the browser socket opens, the message will be "/open\n"
-      #  when the browser socket closes, the mesage will be "/close\n"
+      #  when the browser socket opens, the message will be "/open"
+      #  when the browser socket closes, the mesage will be "/close"
 
       def disconnect(bid)
         socket.send :disconnect => bid
