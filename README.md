@@ -23,7 +23,7 @@ Then, after opening yet another terminal window and changing to the examples dir
 ## FAQ
 
 * Q: How do I use this with a Rails project?
-  A: The details depend on your deployment scenario, but the trickiest part should be adjusting the breakout.yml that is generated so that browsers and workers can connect to wherever the em-breakout server is running. The other steps include adding the breakout gem to your dependencies (you'll have to point it to Github until a gem is published), copying the echo.rb example worker and implementing your own do_work method (make sure your Rails environment is loaded in the worker so you can access models), copying the worker_app.rb to help run your workers, and using Breakout.browser_url in the appropriate view to allow your clients to connect to your workers.
+  A: The details depend on your deployment scenario, but the trickiest part should be adjusting the breakout.yml that is generated so that browsers and workers can connect to wherever the em-breakout server is running. The other steps include adding the breakout gem to your dependencies (gem 'breakout', '0.0.1'), copying the echo.rb example worker and implementing your own do_work method (make sure your Rails environment is loaded in the worker so you can access models), copying the worker_app.rb to help run your workers, and using Breakout.browser_url in the appropriate view to allow your clients to connect to your workers.
 
 ## Copyright
 

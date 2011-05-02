@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Steve Masterman"]
   s.email       = ["steve@vermonster.com"]
-  s.homepage    = ""
-  s.summary     = %q{Easy WebSockets in Ruby}
-  s.description = %q{Easy WebSockets in Ruby}
+  s.homepage    = "https://github.com/steve9001/breakout"
+  s.summary     = %q{Breakout routes messages among web browsers and workers using WebSockets.}
+  s.description = %q{Breakout routes messages among web browsers and workers using WebSockets.}
 
   s.rubyforge_project = "breakout"
 
