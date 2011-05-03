@@ -36,7 +36,8 @@ module Breakout
     e = opts[:e] || (Time.now + 3).to_i
     notify = opts[:notify] || false
     gat = grid_access_token(route, bid, e, notify)
-    "ws://#{CONFIG[:breakout_host]}:#{CONFIG[:browser_port]}/#{CONFIG[:grid]}?route=#{route}&bid=#{bid}&e=#{e}&notify=#{notify}&gat=#{gat}"
+    host = opts[:host] || CONFIG[:breakout_host]
+    "ws://#{host}:#{CONFIG[:browser_port]}/#{CONFIG[:grid]}?route=#{route}&bid=#{bid}&e=#{e}&notify=#{notify}&gat=#{gat}"
   end
 
   def self.load_or_create_config_file(config_filename)
