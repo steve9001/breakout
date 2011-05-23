@@ -8,6 +8,5 @@ require 'breakout/web_socket'
 require 'breakout/api'
 require 'breakout/app'
 require 'breakout/config'
-require 'lib/breakout/railtie' if defined?(Rails)
 require 'breakout/socket'
 require 'breakout/worker'
